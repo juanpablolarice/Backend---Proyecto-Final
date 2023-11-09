@@ -4,7 +4,7 @@
   "description": "Modulo 3 - Desafio 5",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "mocha test/supertest.test.js"
   },
   "mocha": {
