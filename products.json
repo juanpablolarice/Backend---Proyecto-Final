@@ -1,0 +1,128 @@
+[
+    {
+        "_id": 1,
+        "title": "Smart TV 4K UHD Samsung 50 UN50AU7000",
+        "description": "Conectá tus dispositivos<br>Mediante sus entradas HDMI podés conectar reproductores de audio y video; consolas de juegos y notebooks. Su gran capacidad de transmisión de datos permite disfrutar de imágenes en alta definición y un sonido de gran fidelidad. También, a través de su puerto USB podrás reproducir contenido digital (música, imágenes y videos) almacenado en dispositivos externos como tablets, smartphones y pendrives.<br>Navegá por la web<br>        Gracias a que posee Wi-Fi incorporado, podrás acceder a internet de forma inalámbrica, navegar y ejecutar tus aplicaciones favoritas.Disfrutá 4K Ultra HD El Smart TV Samsung UN50AU7000 tiene una resolución cuatro veces superior a la de una TV Full HD (3840 x 2160 píxeles) y cuenta con Crystal Processor 4K que garantiza una expresión de colores optimizada para que puedas ver cada detalle. Su panel LED ofrece además la característica de alto rango dinámico (HDR), que aumenta la expresión brillante del televisor para que puedas disfrutar de un inmenso espectro de colores y detalles visuales, incluso en las escenas más oscuras.",
+        "code": "502182",
+        "price": 239999,
+        "status": true,
+        "stock": 10,
+        "category": "Televisores",
+        "thumbnails": [
+            "https://images.fravega.com/f500/d7ca24bf5639a7db78c31aa9fa963be8.jpg",
+            "https://images.fravega.com/f500/e819eb5a8b27a29e8684e12910627e50.jpg"
+        ]
+    },
+    {
+        "_id": 2,
+        "title": "Smart TV Philips 32 HD Android TV 32PHD6917/77",
+            "description": "Gracias a su conexión Wi-Fi y Bluetooth, podrás conectarte de forma inalámbrica a cualquier dispositivo. También cuenta con puertos HDMI y USB para que puedas vincular y reproducir contenido multimedia de consolas, notebooks, tablets, smartphone y pendrives.",
+            "code": "502388",
+            "price": 119999,
+            "status": true,
+            "stock": 10,
+            "category": "Televisores",
+            "thumbnails": [
+                "https://images.fravega.com/f500/7110e03608af218ecbef68b673b0b8cc.jpg",
+                "https://images.fravega.com/f500/de0fb5de1907b3114da3aa226ca01add.jpg"
+            ]
+    },
+    {
+        "_id": 3,
+        "title": "Smart TV 4K UHD Samsung 70 UN70AU7000GCFV",
+        "description": "Mediante sus entradas HDMI podés conectar reproductores de audio y video; consolas de juegos y notebooks. Su gran capacidad de transmisión de datos permite disfrutar de imágenes en alta definición y sun sonido de gran fidelidad. También, a través de su puerto USB podrás reproducir contenido digital (música, imágenes y videos) almacenado en dispositivos externos como tablets, smartphones y pendrives.",
+        "code": "333",
+        "price": 502502,
+        "status": true,
+        "stock": 15,
+        "category": "Televisores",
+        "thumbnails": [
+            "https://images.fravega.com/f500/cf70a4cc0a3841e301456b80a677d59d.jpg",
+            "https://images.fravega.com/f500/b88b2f16b10b20a867d4652040b39864.jpg"
+        ]
+    },
+    {
+        "_id": 4,
+        "title": "Notebook Dell 15,6 Ryzen 5 8GB 256GB SSD INSP3525 2DJ8R",
+        "description": "Combinando su procesador AMD Ryzen 5 con la memoria RAM de 8GB y el almacenamiento SSD de 256GB, la Inspiron 3525 ofrece un desempeño ágil en las tareas diarias, una experiencia de uso rápida y el espacio necesario para todos tus archivos.",
+        "code": "364261",
+        "price": 579999,
+        "status": true,
+        "stock": 4,
+        "category": "Notebooks",
+        "thumbnails": [
+            "https://images.fravega.com/f500/a5aaf0e6ed5efe87d784b1df8cf0c0f1.png",
+            "https://images.fravega.com/f500/84b56ff6d4a515a55ba62fef5b96464c.png"
+        ]
+    },
+    {
+        "_id": 5,
+        "title": "Notebook Acer 15,6 Intel Core i5 12 Núcleos 8GB 512GB SSD Nitro 5 Placa RTX 3050",
+        "description": "Sus bordes delgados te permitirán tener mayor espacio de visualización para no perderte de nada, mientras que el teclado retroiluminado mejora la visibilidad, crea un ambiente inmersivo y facilita la identificación rápida de teclas.",
+        "code": "364392",
+        "price": 849999,
+        "status": true,
+        "stock": 5,
+        "category": "Notebooks",
+        "thumbnails": [
+            "https://images.fravega.com/f500/246fbb859858cabf5b53c60d55cd6068.jpg",
+            "https://images.fravega.com/f500/83835528d7a185f7333722ce14126e6c.jpg"
+        ]
+    },
+    {
+        "_id": 6,
+        "title": "Alienware Notebook Alienware 15.6 Core i7 32GB 512GB SSD ALW3080",
+        "description": "La notebook Alienware ALW3080 posee un diseño moderno y elegante. Su tamaño compacto te permitirá llevarla con vos a donde sea, para estudiar o trabajar.",
+        "code": "364270",
+        "price": 1999999,
+        "status": true,
+        "stock": 6,
+        "category": "Notebooks",
+        "thumbnails": [
+            "https://images.fravega.com/f500/f66455e5c402cfe5590c48e52c123f07.jpg",
+            "https://images.fravega.com/f500/825a31ed55969835088b34c4f0efea71.jpg"
+        ]
+    },
+    {
+        "_id": 7,
+        "title": "Celular Samsung Galaxy Z Fold5 5g - Phantom Black 76 512gb 50mp",
+        "description": "La potencia de una PC, ahora, en tu bolsillo. Conoce el smartphone con una gran pantalla, como un cine móvil. La que es tanto una consola de juegos emocionante como una herramienta multi pantalla y multitarea. Y se completa con una potente cámara de calidad profesional. Todo plegado en tus manos.",
+        "code": "20583003",
+        "price": 1466639,
+        "status": true,
+        "stock": 7,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://images.fravega.com/f500/56ce151c3b311303161c5736651e55a8.jpg",
+            "https://images.fravega.com/f500/2e8405e29c4e66e3cebaba4155a52cdd.jpg"
+        ]
+    },
+    {
+        "_id": 8,
+        "title": "iPhone 13 Pro 256GB Sierra Blue",
+        "description": "Un sistema de cámaras mucho más poderoso. Una pantalla con respuesta inmediata en cada interacción. El chip de smartphone más rápido del mundo. Un diseño increíblemente resistente. Y un gran salto en duración de batería.",
+        "code": "20235803",
+        "price": 2807820,
+        "status": true,
+        "stock": 8,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://images.fravega.com/f500/63d1b00b6472fc7937eff866a1a7b5b2.jpg",
+            "https://images.fravega.com/f500/5579294acfcc094dac566cf6eda6600e.jpg"
+        ]
+    },
+    {
+        "_id": 9,
+        "title": "Celular Xiaomi Poco F4 GT 5G 12GB 256GB",
+        "description": "VIENE SIN CARGADOR Almacenamiento y RAM: 12 GB + 256 GB LPDDR5 RAM + UFS3.1 Almacenamiento Procesador: Snapdragon® 8 Gen 1 Monitor: 6.67 plano AMOLED DotDisplay Resolución: 2400 × 1080 FHD+ Batería y carga: Batería de 4700 mAh (típica)* Cámara trasera: Cámara triple de 64MP + 8MP + 2MP Sensor de parpadeo Cámara frontal: Cámara frontal de 20MP Seguridad y autenticación: Sensor de huellas dactilares lateral Desbloqueo facial de IA Red y conectividad: Dual SIM: 5G + 5G Redes inalámbricas: Bluetooth 5.2 Wi-Fi 6E (2.4G/5GHz/6GHz) Navegación y posicionamiento: GPS: L1 + L5 | GLONASS: G1 | Galileo: | E1+E5a BeiDou: B1I+B1C+B2a Sensor: Sensor de proximidad | Sensor de luz ambiental de 360° | Sensor de temperatura de color | | de giroscopio | del acelerómetro Brújula electrónica | | de bláster IR Sensor de huellas dactilares | Sensor de parpadeo | Sensor Sar",
+        "code": "20050221",
+        "price": 1228099,
+        "status": true,
+        "stock": 9,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://images.fravega.com/f500/fb92edfac6ae7289c726d5b9c43494fa.jpg",
+            "https://images.fravega.com/f500/6be43d0d86598245fc57681f09eadce3.jpg"
+        ]
+    }
+]

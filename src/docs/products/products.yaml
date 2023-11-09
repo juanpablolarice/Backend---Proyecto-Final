@@ -1,0 +1,190 @@
+paths:
+  /products/:
+    get:
+      summary: Obtiene todos los productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  /api/products/create:
+    get:
+      summary: Creo un producto
+      tags:
+        - Products
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+   
+  /api/product/{id}/edit:
+    get:
+      summary: Editar un producto
+      tags:
+        - Products
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  /api/product/{id}/update:
+    post:
+      summary: Actualizar un producto
+      tags:
+        - Products
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  /api/product/store:
+    post:
+      summary: Guardar un producto nuevo
+      tags:
+        - Products
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  /api/products/{id}:
+    delete:
+      summary: Eliminar un producto
+      tags:
+        - Products
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado por MongoDB
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripción del producto
+        code:
+          type: String
+          description: Precio
+        price:
+          type: Number
+          description: Precio
+        status:
+          type:   Boolean
+          description: Estado del producto (Activo / Inactivo)
+        stock:
+          type: Number
+          description: Stock
+        category:
+          type: String
+          description: 'Televisores, Celulares, Notebooks'
+        thumbnails: 
+          type: String[]
+          description: "Imagenes"
+      example:
+        _id: ObjectId('6489306c2c50908465ab72bd')
+        title: Smart TV 4K UHD Samsung 65
+        description: ediante sus entradas HDMI podés conectar reproductores de audio y video; consolas de juegos y notebooks.
+        code: 502158
+        price: 239000
+        status: 1
+        stock: 20
+        category: Televisores
+        thumbnails: [
+          https://images.fravega.com/f300/e0f74f5cf472b2a52baaa66ce0e17baa.jpg,
+          https://images.fravega.com/f300/c3a8138a1c27cf4891596a74ca03390d.jpg,
+          https://images.fravega.com/f300/183f78f0ea1d6cfc0df25613ccb8bc78.jpg
+        ]

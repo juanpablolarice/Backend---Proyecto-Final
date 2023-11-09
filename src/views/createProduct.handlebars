@@ -1,0 +1,105 @@
+{{> navbar isAdmin=isAdmin }}
+<div class="container my-2">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2 class="text-light">Crear Producto</h2>
+        </div>
+    </div>
+    <form action="/products/store" method="post">
+        <div class="row">
+            {{#if message}}
+                <div class="col-12 mb-3">
+                    <div class="alert alert-{{ status }} mt-3" role="alert">
+                        {{#each message}}
+                            {{{ this }}}<br>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            <div class="col-12 mb-3">
+                <label for="title" class="form-label text-white">Título</label>
+                <input type="Text" class="form-control" name="title" id="title" placeholder="Título" value="{{#if product}}{{product.title}}{{/if}}">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="description" class="form-label text-white">Descripción</label>
+                <textarea class="form-control" id="description" = name="description" rows="3" placeholder="Descripción del producto">{{#if product}}{{product.description}}{{/if}}</textarea>
+            </div>
+            <div class="col-6 mb-3">
+                <label for="code" class="form-label text-white">Código</label>
+                <input type="Text" class="form-control" name="code" id="code" placeholder="Código" value="{{#if product}}{{product.code}}{{/if}}">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="price" class="form-label text-white">Precio</label>
+                <input type="number" class="form-control" name="price" id="price" placeholder="$100.00" value="{{#if product}}{{product.price}}{{/if}}">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="status" class="form-label text-white">Estado</label>
+                <select class="form-select" name="status" id="status" aria-label="Estado">                    
+                    <option value="true" selected>Activo</option>
+                    <option value="false">Inactivo</option>
+                </select>
+            </div>
+            <div class="col-6 mb-3">
+                <label for="category" class="form-label text-white">Categoría</label>
+                <select class="form-select" name="category" id="category" aria-label="Categoría">
+                    <option value="Televisores" selected>Televisores</option>
+                    <option value="Celulares">Celulares</option>
+                    <option value="Notebooks">Notebooks</option>
+                </select>
+            </div>
+            <div class="col-6 mb-3">
+                <label for="stock" class="form-label text-white">Stock</label>
+                <input type="number" class="form-control" name="stock" id="stock" placeholder="Stock" value="{{#if product}}{{product.stock}}{{/if}}">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="thumbnails" class="form-label text-white">Imagénes</label>
+                <textarea class="form-control" id="thumbnails" = name="thumbnails" rows="3" placeholder="https://placehold.co/imagen1.jpg;https://placehold.co/imagen2.jpg;https://placehold.co/imagen3.jpg"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-light">Crear producto</button>
+    </form>
+    <div class="row">
+        
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+<script>
+    let cart = "{{ user.cart }}"
+    function addProduct(product){
+        if(!cart){
+            fetch("http://localhost:8080/api/carts", {
+                method: "POST",
+                body: JSON.stringify({
+                    "products": [
+                        {
+                            "product": product.getAttribute("data-id"),
+                            "quantity": 1
+                        }
+                    ]
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then((response) => response.json())
+            .then((json) => {
+                json.cart ? cart = json.cart :''
+                console.log(json)
+            });
+        }else{
+            fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product.getAttribute("data-id"), {
+                method: "PUT",
+                body: JSON.stringify({
+                    "quantity": 1
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+        }
+        // console.log(product.getAttribute("data-id"))
+    }
+</script>

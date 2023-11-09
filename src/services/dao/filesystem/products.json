@@ -1,0 +1,142 @@
+[
+    {
+        "_id": 1,
+        "title": "Producto 1",
+        "description": "Descripción del producto 1",
+        "code": "111",
+        "price": 10,
+        "status": true,
+        "stock": 1,
+        "category": "Televisores",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+1",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+1"
+        ]
+    },
+    {
+        "_id": 2,
+        "title": "Producto 2",
+        "description": "Descripción del producto 2",
+        "code": "222",
+        "price": 20,
+        "status": true,
+        "stock": 2,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+2",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+2"
+        ]
+    },
+    {
+        "_id": 3,
+        "title": "Producto 3",
+        "description": "Descripción del producto 3",
+        "code": "333",
+        "price": 30,
+        "status": true,
+        "stock": 3,
+        "category": "Notebooks",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+3",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+3"
+        ]
+    },
+    {
+        "_id": 4,
+        "title": "Producto 4",
+        "description": "Descripción del producto 4",
+        "code": "444",
+        "price": 40,
+        "status": true,
+        "stock": 4,
+        "category": "Notebooks",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+4",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+4"
+        ]
+    },
+    {
+        "_id": 5,
+        "title": "Producto 5",
+        "description": "Descripción del producto 5",
+        "code": "555",
+        "price": 50,
+        "status": true,
+        "stock": 5,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+5",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+5"
+        ]
+    },
+    {
+        "_id": 6,
+        "title": "Producto 6",
+        "description": "Descripción del producto 6",
+        "code": "666",
+        "price": 60,
+        "status": true,
+        "stock": 6,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+6",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+6"
+        ]
+    },
+    {
+        "_id": 7,
+        "title": "Producto 7",
+        "description": "Descripción del producto 7",
+        "code": "777",
+        "price": 70,
+        "status": true,
+        "stock": 7,
+        "category": "Televisores",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+7",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+7"
+        ]
+    },
+    {
+        "_id": 8,
+        "title": "Producto 8",
+        "description": "Descripción del producto 8",
+        "code": "888",
+        "price": 80,
+        "status": true,
+        "stock": 8,
+        "category": "Televisores",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+8",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+8"
+        ]
+    },
+    {
+        "_id": 9,
+        "title": "Producto 9",
+        "description": "Descripción del producto 9",
+        "code": "999",
+        "price": 90,
+        "status": true,
+        "stock": 9,
+        "category": "Notebooks",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+9",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+9"
+        ]
+    },
+    {
+        "_id": 10,
+        "title": "Producto 10",
+        "description": "Descripción del producto 10",
+        "code": "1010",
+        "price": 100,
+        "status": true,
+        "stock": 10,
+        "category": "Celulares",
+        "thumbnails": [
+            "https://placehold.co/600x400/000000/FFF?text=Producto+10",
+            "https://placehold.co/600x400/EEEEEE/000?text=Producto+10"
+        ]
+    }
+]

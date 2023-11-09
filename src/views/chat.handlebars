@@ -1,0 +1,26 @@
+{{> navbar isAdmin=isAdmin }}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Chat</h1>
+            <div id="caja" class="mb-2 border border-2 rounded px-3 py-2 bg-light" style="height: 400px; overflow-y: overlay; overflow-x: hidden;"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form onsubmit="return addmessage()">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Tu nombre...">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" id="message" rows="3" placeholder="Tu mensaje..."></textarea>
+                </div>
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-primary mb-3" value="Enviar mensaje">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

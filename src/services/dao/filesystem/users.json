@@ -1,0 +1,22 @@
+[
+    {
+        "_id": 1,
+        "name": "Juan",
+        "email": "juan@mailna.co",
+        "phone": "45454",
+        "age": 11,
+        "cart": 1,
+        "password": "password",
+        "role": "User"
+    },
+    {
+        "_id": 2,
+        "name": "aaa",
+        "email": "as@a.com",
+        "phone": "45454",
+        "age": 11,
+        "cart": 2,
+        "password": 2,
+        "role": "User"
+    }
+]

@@ -1,0 +1,145 @@
+{{> navbar isAdmin=isAdmin }}
+<div class="container my-5">
+    {{#if isTicket}}
+        <div class="row mt-3 mb-5 p-3 rounded-4 bg-success">
+            <div class="col-12 mb-3">
+                <h2 class="text-center text-white">¡Felicitaciones! Tu compra se realizo con exito.</h2>
+                {{#if emailStatus}}
+                <p class="text-center text-white">Te enviamos un mail con el detalle de tu compra.</p>
+                {{else}}
+                <p class="text-center text-white">Toma nota del número de orden, ya que no pudimos enviarte un email con el detalle de la compra.</p>
+                {{/if}}
+            </div>
+            <div class="col-sm-6 mb-0">
+                <p class="mb-0"><strong>Código de compra: </strong>{{ticket.code}}</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="mb-0 text-end"><strong>Total: </strong><i>${{ticket.amount}}</i></p>
+            </div>
+        </div>
+    {{else}}
+        {{#unless productsOutStock}}
+            <div class="row mt-3 mb-3 p-3 rounded-4 bg-light">
+                <div class="col-12">
+                    <h3 class="text-center m-0">No hay productos seleccionados</h3>
+                </div>
+            </div>
+        {{/unless}}    
+    {{/if}}    
+    {{#if productsOutStock}}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger text-center" role="alert">
+                    <strong>¡Atención!</strong> Los siguientes productos no pudieron procesarse por falta de stock.
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    {{#each productsOutStock}}
+        <div class="row mt-3 mb-3 p-3 rounded-4 bg-light">
+            <div class="col-sm-3">
+                <div id="product{{this.code}}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {{#each this.thumbnails}}
+                        <div class="carousel-item {{#if @first }}active {{/if}}">
+                            <img src="{{this}}" class="d-block w-100 img-fluid" alt="">
+                        </div>
+                        {{/each}}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#product{{this.code}}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#product{{this.code}}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <p class="text-end m-0"><strong>Unidad: </strong><i>${{this.price}}</i></p>
+            </div>
+            <div class="col-sm-3 text-end">
+                <div class="row">
+                    <div class="align-item-start">
+                        <p>
+                            <strong>Cantidad: </strong> <span id="quantity-{{this._id}}">{{ this.quantity }}</span>
+                        </p>
+                        <p>
+                            <strong>Subtotal: </strong>$<span id="subtotal-{{this._id}}">{{ this.subtotal }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        
+    {{/each}}
+    {{#if products}}
+    <div class="row mt-4 mb-4">
+        <div class="col-sm-3 ps-0 text-start">
+            <a href="/cart/{{user.cart}}/purchase" class="btn btn-success">Finalizar compra</a>
+        </div>
+        <div class="col-sm-9 text-end text-white">
+            <h4><strong>Total: <i class="fs-3">$<span id="total">{{total}}</span></i></strong></h4>
+        </div>
+    </div>
+    {{/if}}
+</div>
+<script>
+    let cart = "{{ user.cart }}"
+
+    function deleteProductToCart(product){
+        fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product, {
+            method: "DELETE",            
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            Swal.fire({
+                text: json.msg,
+                icon: json.status,
+                confirmButtonText: 'Aceptar',
+                willClose: () => {
+                    if(json.status === 'success'){
+                        location.reload()                    
+                    }
+                }
+            })
+        });
+    }
+
+    function updateProductToCart(product,operation){
+        const productQuantity = document.getElementById('quantity-' + product)
+        const productSubtotal = document.getElementById('subtotal-' + product)
+        const total = document.getElementById('total')
+        console.log("Cart: " + cart + ' - Product: ' + product)
+        fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product, {
+            method: "PUT",
+            body: JSON.stringify({
+                "quantity": 1,
+                "operation": operation
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            Swal.fire({
+                text: json.msg,
+                icon: json.status,
+                confirmButtonText: 'Aceptar',
+                willClose: () => {
+                    if(json.status === 'success'){
+                        location.reload()                    
+                    }
+                }
+            })
+        });
+    }
+</script>

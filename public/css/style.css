@@ -1,0 +1,7 @@
+a {
+    text-decoration: none;
+}
+.delete-product {
+    cursor: pointer;
+    color: red;
+}

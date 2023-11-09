@@ -1,0 +1,30 @@
+<div class="vh-100 d-flex justify-content-center align-items-center bg-light">
+    <div class="col-sm-8 col-md-7 col-lg-5 col-xl-4 p-5 shadow-sm border rounded-3">
+        <h2 class="text-center mb-4 text-primary">Registrarse</h2>
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control border border-primary" name="name" id="name">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Teléfono</label>
+                <input type="number" class="form-control border border-primary" name="phone" id="phone">
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Edad</label>
+                <input type="number" class="form-control border border-primary" name="age" id="age">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control border border-primary" name="email" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control border border-primary" name="password" id="password">
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

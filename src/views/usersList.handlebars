@@ -1,0 +1,158 @@
+{{> navbar isAdmin=isAdmin }}
+<div class="container my-2">
+    {{#if user.email }}
+    {{!-- <div class="row">
+        <div class="col-12">
+            <h1>Bienvenido/a <i>{{ user.email }}</i></h1>
+            <h4>Rol: <i>{{ user.role }}</i></h4>
+        </div>
+    </div> --}}
+    {{/if}}    
+    <div class="row mb-3">
+        <div class="col-12">
+            <button onclick="deleteUsers()" class="btn btn-warning">Eliminar usuarios sin sesión en los últimos dos días</button>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <h2 class="text-light">Usuarios</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table bg-light table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Rol</th>
+                            <th class="text-center" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each users}}
+                            <tr>
+                                <th>{{ this.name }}</th>
+                                <td>{{ this.email }}</td>
+                                <td>{{ this.role }}</td>
+                                <td class="text-center">
+                                    <span title="Editar rol" onclick="editRole('{{this._id}}')" class="btn btn-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield" viewBox="0 0 16 16">
+                                            <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                                        </svg>
+                                    </span>
+                                    {{!-- <span title="Eliminar usuario" onclick="deleteUser('{{this._id}}')" class="btn btn-danger">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                        </svg>
+                                    </span> --}}
+                                </td>
+                            </tr>
+                        {{else}}
+                            <h3>Error</h3>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 py-4">
+            <nav aria-label="...">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item {{#if pagination.hasPrevPage}}{{else}}disabled{{/if}}">
+                        <a href="/api/users?page={{ pagination.prevPage }}&limit={{pagination.limit}}" class="page-link">Previo</a>
+                    </li>
+                    {{#if pagination.prevPage }}
+                        <li class="page-item">
+                            <a class="page-link" href="/api/users?page={{ pagination.prevPage }}&limit={{pagination.limit}}">{{ pagination.prevPage }}</a>
+                        </li>
+                    {{/if}}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">{{ pagination.page }}</a>
+                    </li>
+                    {{#if pagination.nextPage }}
+                        <li class="page-item">
+                            <a class="page-link" href="/api/users?page={{ pagination.nextPage }}&limit={{pagination.limit}}">{{ pagination.nextPage }}</a>
+                        </li>
+                    {{/if}}
+                    <li class="page-item {{#if pagination.hasNextPage}}{{else}}disabled{{/if}}">
+                        <a href="/api/users?page={{ pagination.nextPage }}&limit={{pagination.limit}}" class="page-link">Siguiente</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div id="editRole" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Seleccionar rol</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <select id="editRoleSelect" class="form-select" aria-label="Seleccionar rol">                
+                    <option value="User">Usuario</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Admin">Administrador</option>
+                </select>
+            </div>
+            {{!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+        </div>
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+<script>    
+    const modalEditRole = new bootstrap.Modal('#editRole')
+    const selectRole = document.querySelector('#editRoleSelect')
+
+    selectRole.addEventListener('change', function() {
+        //ACTUALIZO EL ROL DEL USUARIO
+
+        console.log("CHANGE")
+    })
+
+    function editRole(id){
+        fetch("http://localhost:8080/api/users/" + id, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            document.querySelector('#editRoleSelect').value = json.role
+            console.log(json.role)
+            modalEditRole.show();
+        })
+    }
+    {{#if isAdmin}}
+    function deleteUsers(product){
+        fetch("http://localhost:8080/api/products/" + product, {
+            method: "DELETE",            
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            Swal.fire({
+                text: json.msg,
+                icon: json.status,
+                confirmButtonText: 'Aceptar',
+                willClose: () => {
+                    if(json.status === 'success'){
+                        location.reload()                    
+                    }
+                }
+            })
+        });
+    }
+    {{/if}}
+</script>

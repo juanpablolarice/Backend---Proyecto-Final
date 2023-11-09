@@ -1,0 +1,168 @@
+paths:
+  /cart/:
+    get:
+      summary: Se muestra el carro de la sesión activa
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  /api/carts:
+    get:
+      summary: Obtengo todos los carros
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+   
+  /api/carts/{id}:
+    get:
+      summary: Obtengo un carro por ID
+      tags:
+        - Carts
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  /cart/{id}/purchase:
+    get:
+      summary: Proceso el pago del carro
+      tags:
+        - Carts
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  # /api/carts:
+  #   post:
+  #     summary: Creo un carro
+  #     tags:
+  #       - Carts
+  #     # parameters:
+  #     #   - name: id
+  #     #     in: path
+  #     #     required: true
+  #     #     description: ID del producto que se desea buscar
+  #     #     schema:
+  #     #         $type: String
+  #     responses:
+  #       "200":
+  #         description: La operación fue exitosa!!
+  #         # content:
+  #         #   application/json:
+  #         #     schema:
+  #         #       type: array
+  #         #       items:
+  #         #         $ref: '#components/schemas/Product'
+  #       "400":
+  #         description: Se envio un dato no esperado
+  #       "500":
+  #         description: Error inesperado en el server
+
+  
+  /api/carts/{cid}/product/{pid}:
+    delete:
+      summary: Elimino un producto del carro
+      tags:
+        - Carts
+      # parameters:
+      #   - name: id
+      #     in: path
+      #     required: true
+      #     description: ID del producto que se desea buscar
+      #     schema:
+      #         $type: String
+      responses:
+        "200":
+          description: La operación fue exitosa!!
+          # content:
+          #   application/json:
+          #     schema:
+          #       type: array
+          #       items:
+          #         $ref: '#components/schemas/Product'
+        "400":
+          description: Se envio un dato no esperado
+        "500":
+          description: Error inesperado en el server
+
+  
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado por MongoDB
+        products: 
+          type: Object
+          properties:
+            product: 
+              type: String
+              description: Nombre del producto
+            quantity:
+              type: Number
+              description: Cantidad de productos
+      example:
+        # _id: ObjectId('647fa8c9e46dbc5a20320181')
+        # first_name: Juan Pablo
+        # last_name: Larice
+        # email: juanpablolarice@gmail.com
+        # password: 123456
