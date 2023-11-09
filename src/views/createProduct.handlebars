@@ -68,7 +68,7 @@
     let cart = "{{ user.cart }}"
     function addProduct(product){
         if(!cart){
-            fetch("http://localhost:8080/api/carts", {
+            fetch("/api/carts", {
                 method: "POST",
                 body: JSON.stringify({
                     "products": [
@@ -88,7 +88,7 @@
                 console.log(json)
             });
         }else{
-            fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product.getAttribute("data-id"), {
+            fetch("/api/carts/" + cart + "/product/" + product.getAttribute("data-id"), {
                 method: "PUT",
                 body: JSON.stringify({
                     "quantity": 1

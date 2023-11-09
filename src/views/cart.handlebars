@@ -85,7 +85,7 @@
     let cart = "{{ user.cart }}"
 
     function deleteProductToCart(product){
-        fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product, {
+        fetch("/api/carts/" + cart + "/product/" + product, {
             method: "DELETE",            
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -111,7 +111,7 @@
         const productSubtotal = document.getElementById('subtotal-' + product)
         const total = document.getElementById('total')
         console.log("Cart: " + cart + ' - Product: ' + product)
-        fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product, {
+        fetch("/api/carts/" + cart + "/product/" + product, {
             method: "PUT",
             body: JSON.stringify({
                 "quantity": 1,

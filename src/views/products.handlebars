@@ -92,7 +92,7 @@
 
     function updateProductToCart(product, operation){
         console.log("Cart: " + cart + ' - Product: ' + product)
-        fetch("http://localhost:8080/api/carts/" + cart + "/product/" + product, {
+        fetch("/api/carts/" + cart + "/product/" + product, {
             method: "PUT",
             body: JSON.stringify({
                 "quantity": 1,
@@ -113,7 +113,7 @@
     }
     {{#if isAdmin}}
     function deleteProduct(product){
-        fetch("http://localhost:8080/api/products/" + product, {
+        fetch("/api/products/" + product, {
             method: "DELETE",            
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
