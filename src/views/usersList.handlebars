@@ -93,6 +93,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <input type="hidden" id="user_id">
                 <select id="editRoleSelect" class="form-select" aria-label="Seleccionar rol">                
                     <option value="User">Usuario</option>
                     <option value="Premium">Premium</option>
@@ -113,9 +114,29 @@
     const selectRole = document.querySelector('#editRoleSelect')
 
     selectRole.addEventListener('change', function() {
+        let user_id = document.querySelector('#user_id').value
         //ACTUALIZO EL ROL DEL USUARIO
-
-        console.log("CHANGE")
+        let role = selectRole.options[selectRole.selectedIndex].value
+        fetch("/api/users/" + user_id + "/updateRole", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({role: role})
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            Swal.fire({
+                text: json.msg,
+                icon: json.status,
+                confirmButtonText: 'Aceptar',
+                willClose: () => {
+                    if(json.status === 'success'){
+                        location.reload()                    
+                    }
+                }
+            })
+        })
     })
 
     function editRole(id){
@@ -126,15 +147,15 @@
             }
         })
         .then((response) => response.json())
-        .then((json) => {
-            document.querySelector('#editRoleSelect').value = json.role
-            console.log(json.role)
+        .then((json) => {            
+            document.querySelector('#editRoleSelect').value = json.user.role
+            document.querySelector('#user_id').value = json.user._id
             modalEditRole.show();
         })
     }
     {{#if isAdmin}}
     function deleteUsers(product){
-        fetch("/api/products/" + product, {
+        fetch("/api/users/delete", {
             method: "DELETE",            
             headers: {
                 "Content-type": "application/json; charset=UTF-8"

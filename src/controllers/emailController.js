@@ -160,5 +160,43 @@ const sendEmailCheckout = async (products, ticket) => {
         }
 }
 
+const sendEmailDeleteAccount = async (user) => { 
+    console.log("USER: " + user)
+    console.log("USER.EMAIL: " + user.email)
+    let template = (`
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+                <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <title>Eliminación de cuenta</title>
+                </head>
+                <body>
+                    <h2 style="text-align: center;">Lo sentimos! Tu cuenta fue eliminada.</h2>
+                    <p style="text-align: center;">
+                        Hola ${user.name}.
+                        La cuenta correspondiente al usuario ${user.email} fue eliminada debido a la falta de actividad en los últimos dos días.
+                    </p>
+                </body>
+            </html>
+    `)
 
-module.exports = { sendEmailCheckout }
+    const mailOptions = {
+        from: 'coderhouse@ecommerce.com',
+        to: user.email,
+        subject: 'Eliminación de cuenta',
+        html: template
+    }
+            
+    try {
+        let result = transporter.sendMail(mailOptions, (error, info) => {
+            if(error){
+                return false
+            }                
+        })
+        return true
+    } catch (error) {
+        return false
+    }
+}
+
+module.exports = { sendEmailCheckout, sendEmailDeleteAccount }
