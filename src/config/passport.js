@@ -57,7 +57,6 @@ const initializePassport = () => {
         async (req, username, password, done) =>{
             try {
                 console.log("Procesando login")
-                // return "estoy aca"
                 // TENGO QUE LLAMAR AL CONTROLLER
                 const userData = await userModel.findOne({ email: username });
                 if(userData){

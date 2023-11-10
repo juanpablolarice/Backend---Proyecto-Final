@@ -2,7 +2,7 @@ const User = require("../services/dao/mongo/models/user.model");
 
 const sessionActive = async (req, res, next) => {
     if(req.session.user){        
-        if(req.session.user.role == 'User' || req.session.user.role == 'Admin'){            
+        if(req.session.user.role == 'User' || req.session.user.role == 'Premium' || req.session.user.role == 'Admin'){            
             next()
         }else{
             console.log('No coincide la sesion')

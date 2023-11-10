@@ -48,17 +48,14 @@ class User {
 
     updateRoleByUserId = async (user_id, role) => {
         try {
-            const user = await userModel.findById(user_id)
-            // console.log("USER CLASS: " + user)
-            console.log("USER CLASS: " + role)
-            // if(user){
-                user.role = role
-                const result = await user.save()
-                if(result){
-                    return true
-                }else{
-                    return false
-                }            
+            const user = await userModel.findById(user_id)            
+            user.role = role
+            const result = await user.save()
+            if(result){
+                return true
+            }else{
+                return false
+            }            
         } catch (error) {
             return false            
         }
