@@ -81,17 +81,36 @@ const deleteUsers = async (req, res) => {
     try {
         const filter = new Date();
         // FILTER se establece la cantidad de días desde la última sesión para eliminar esos usuarios
-        filter.setDate(filter.getDate() - 5);        
+        filter.setDate(filter.getDate() - 5);
+        
         const usersDelete = await UserModel.find({ last_login: { $lt: filter } });
         
-        for (const user of usersDelete) {           
-            console.log(user)
-            // FALTA ELIMINAR AL USUARIO Y LUEGO ENVIAR EL EMAIL
-            const result = await userClass.deleteUserByEmail(user.email)
-        }        
-        res.status(201).send('Usuarios eliminados con éxito');
+        if(usersDelete.length === 0){
+            res.status(201).json({
+                msg: 'No hay usuarios con inactividad en los últimos 5 días.',
+                status: 'warning'
+            });
+        }else{
+            for (let index = 0; index < usersDelete.length; index++) {                
+                let user = usersDelete[index]        
+                const result = await userClass.deleteUserByEmail(user.email)
+                if(!result){
+                    res.status(500).json({
+                        msg: 'Ocurrió un error al eliminar los usuarios',
+                        status: 'error'
+                    });
+                }
+            }
+            res.status(201).json({
+                msg: 'Usuarios eliminados con éxito',
+                status: 'success'
+            });
+        }
     } catch (error) {
-        res.status(500).send('Ocurrió un error al eliminar los usuarios');
+        res.status(500).json({
+            msg: 'Ocurrió un error al eliminar los usuarios',
+            status: 'error'
+        });
     }
 }
 

@@ -160,9 +160,7 @@ const sendEmailCheckout = async (products, ticket) => {
         }
 }
 
-const sendEmailDeleteAccount = async (user) => { 
-    console.log("USER: " + user)
-    console.log("USER.EMAIL: " + user.email)
+const sendEmailDeleteAccount = async (name, email) => { 
     let template = (`
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
             <html xmlns="http://www.w3.org/1999/xhtml">
@@ -173,8 +171,8 @@ const sendEmailDeleteAccount = async (user) => {
                 <body>
                     <h2 style="text-align: center;">Lo sentimos! Tu cuenta fue eliminada.</h2>
                     <p style="text-align: center;">
-                        Hola ${user.name}.
-                        La cuenta correspondiente al usuario ${user.email} fue eliminada debido a la falta de actividad en los últimos dos días.
+                        Hola ${name}.
+                        La cuenta correspondiente al usuario ${email} fue eliminada debido a la falta de actividad en los últimos dos días.
                     </p>
                 </body>
             </html>
@@ -182,7 +180,7 @@ const sendEmailDeleteAccount = async (user) => {
 
     const mailOptions = {
         from: 'coderhouse@ecommerce.com',
-        to: user.email,
+        to: email,
         subject: 'Eliminación de cuenta',
         html: template
     }

@@ -65,13 +65,21 @@ class User {
         try {
             console.log(email)
             const user = await userModel.findOne({ email: email})
-            const result = await sendEmailDeleteAccount(user)
-            console.log("deleteUserByEmail: " + result)
-            // const user = await userModel.deleteOne({ _id: id})
-            // if(user){
+            if(user){
+                const name = user.name
+                const email = user.email
+                                
+                let response = await userModel.deleteOne({ email: { $eq: email } }) 
                 
-            // }
-            return true            
+                if(response.deletedCount == 1){
+                    const result = await sendEmailDeleteAccount(name, email)
+                }else{
+                    return false
+                }                
+                return true            
+            }else{
+                return false
+            }
         } catch (error) {
             console.log("ERROR en deleteUserByEmail: ")
             return false
